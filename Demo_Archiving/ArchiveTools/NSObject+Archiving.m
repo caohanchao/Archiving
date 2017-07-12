@@ -15,12 +15,7 @@
 
 
 + (NSDictionary *)propertyOfSelf{
-    // 1. 获得类中的所有成员变量
-    // Ivar：成员属性的意思
-    // 第一个参数：表示获取哪个类中的成员属性
-    // 第二个参数：表示这个类有多少成员属性，传入一个Int变量地址，会自动给这个变量赋值
-    // 返回值Ivar *：指的是一个ivar数组，会把所有成员属性放在一个数组中，通过返回的数组就能全部获取到
-    
+   
     unsigned int propertyCount = 0;
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -50,13 +45,13 @@
 #pragma mark --- NSCoding方法
 //归档(编码)
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    //对自定义类属性分别进行编码操作
-    NSLog(@"开始对属性进行编码");
+
+//    NSLog(@"开始对属性进行编码");
     NSDictionary *properNames = [[self class] propertyOfSelf];
     
     for (NSString *propertyName in properNames) {
         
-        //通过KVC取出对应属性的值
+
         id value = [self valueForKey:propertyName];
         
         [aCoder encodeObject:value forKey:propertyName];
@@ -66,8 +61,7 @@
 
 //解档(解码)
 - (instancetype )initWithCoder:(NSCoder *)aDecoder {
-    NSLog(@"对自定义类的属性进行解码");
-    
+//    NSLog(@"对自定义类的属性进行解码");
     NSDictionary *properNames = [[self class] propertyOfSelf];
     
     for (NSString *propertyName in properNames) {
