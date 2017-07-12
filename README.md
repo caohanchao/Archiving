@@ -1,11 +1,34 @@
-#Demo_Archiving
+##Archiving
 
->  归解档
-1. 简单实现归解档，不需要通过键值的方式一个个的实现归档与接档。 只需要倒入“NSObject+Archiving.h”类别即可实现归解档。
+###自定义模型的归解档
 
-2. ArchiveTools中 简单的封装了归档 和 解档 的 方法；简单易懂
+使用说明:
 
- 
-3. 如果喜欢就给了星星吧    https://github.com/caohanchao/Archiving.git
+```
+1. 导入“NSObject+Archiving.h”在自定义模型中 。
+2. 使用ArchiveTools中的两个方法：
+/**
+ 归档操作
+ @param name 文件名
+ @param obj 归档对象
+ @param key 归档秘钥
+ */
++ (BOOL)encodingWithFileName:(NSString *)name withObj:(id)obj withKey:(NSString *)key;
 
-# 本人联系方式：627203960@qq.com  
+/**
+ 解档操作
+ @param name 文件名
+ @param key 解档秘钥
+ @return    返回解档对象
+ */
++ (id)decodingWithFileName:(NSString *)name withKey:(NSString *)key;
+
+
+```
+
+Demo中有具体的case！如果觉得简单就给个赞👍咯！
+
+ <https://github.com/caohanchao/Archiving.git>  
+   
+##### 本人联系方式：627203960@qq.com / caohanchao@gmail.com
+
