@@ -42,6 +42,26 @@
     //解档
     Person *person2 = [ArchiveTools decodingWithFileName:@"jonny" withKey:@"Person"];
     NSLog(@"secon person name:%@, age:%@", person2.name, person2.age);
+    
+    
+    
+    
+    
+    /*
+     json归档
+     */
+    Person *person3 = [[Person alloc] initWithName:@"games" withAge:@"25"];
+    BOOL successJson = [ArchiveTools writeJsonFileWithFileName:@"games" withObj:person3];
+    if (successJson) {
+        NSLog(@"--------encoding success--------");
+    }
+    
+    /*
+     json解档
+     */
+    id obj = [ArchiveTools readJsonFileWithFileName:@"games"];
+    NSLog(@"object:%@",obj);
+    
 }
 
 

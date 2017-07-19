@@ -26,7 +26,6 @@
         objc_property_t property = properties[i];
         const char * name = property_getName(property);//获取属性名字
         NSString *nameStr = [NSString stringWithUTF8String:name];
-        
         const char * attributes = property_getAttributes(property);//获取属性类型
         NSString *attributesStr = [NSString stringWithUTF8String:attributes];
         

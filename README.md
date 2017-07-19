@@ -26,6 +26,27 @@
 
 ```
 
+###自定义模型以JSON串的形式写入文件中
+
+```
+/**
+ 写入json文件
+ @param name 文件名
+ @param obj  对象
+ @return     写入成功或者失败
+ */
++ (BOOL)writeJsonFileWithFileName:(NSString *)name withObj:(id)obj;
+
+
+/**
+ 读取json文件
+ @param name 文件名
+ @return     读取json内容
+ */
++ (id)readJsonFileWithFileName:(NSString *)name;
+
+```
+
 Demo中有具体的case！如果觉得简单就给个赞👍咯！
 
  <https://github.com/caohanchao/Archiving.git>  
